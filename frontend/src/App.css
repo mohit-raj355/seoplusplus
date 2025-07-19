@@ -1,0 +1,531 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease;
+}
+
+.diff-scroll-area .d2h-wrapper {
+  /* Remove previous max-height/overflow */
+}
+.diff-scroll-area .d2h-wrapper > table {
+  display: block;
+  max-height: 600px;
+  overflow: auto;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* --- diff2html dark mode overrides --- */
+.dark .diff-scroll-area .d2h-wrapper {
+  background: #18181b !important;
+  color: #e5e7eb !important;
+}
+.dark .diff-scroll-area .d2h-file-header {
+  background: #27272a !important;
+  color: #a3a3a3 !important;
+}
+.dark .diff-scroll-area .d2h-code-line,
+.dark .diff-scroll-area .d2h-code-side-line {
+  background: #18181b !important;
+  color: #e5e7eb !important;
+}
+.dark .diff-scroll-area .d2h-del {
+  background: rgba(220, 38, 38, 0.25) !important; /* soft red */
+  color: #e5e7eb !important;
+  font-weight: normal;
+}
+.dark .diff-scroll-area .d2h-ins {
+  background: rgba(16, 185, 129, 0.25) !important; /* soft green */
+  color: #e5e7eb !important;
+  font-weight: normal;
+}
+.dark .diff-scroll-area .d2h-info {
+  background: #27272a !important;
+  color: #a3a3a3 !important;
+}
+.dark .diff-scroll-area .d2h-code-line-ctn {
+  background: #27272a !important;
+  color: #a3a3a3 !important;
+}
+.dark .diff-scroll-area .d2h-emptyplaceholder {
+  background: #27272a !important;
+  color: #a3a3a3 !important;
+}
+
+/* Floating orb animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(270deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(25px) rotate(-90deg);
+  }
+  50% {
+    transform: translateX(0px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(-15px) rotate(-270deg);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotateY(180deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes twinkle-delayed {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-twinkle-delayed {
+  animation: twinkle-delayed 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Enhanced shadow for 3D effect */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Glass morphism effect */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Dark mode transition optimization */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Disable transitions for immediate elements during dark mode toggle */
+.dark-mode-transitioning * {
+  transition: none !important;
+}
+
+/* Performance optimization for dark mode */
+.dark {
+  color-scheme: dark;
+}
+
+/* Optimize frequently changing elements */
+nav,
+main,
+footer,
+.bg-white,
+.dark\\:bg-gray-800,
+.dark\\:bg-gray-900 {
+  will-change: background-color;
+}
+
+/* Reduce paint complexity for better performance */
+.transition-colors {
+  transform: translateZ(0);
+}
+
+/* GitHub-style radial gradient */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+/* Subtle grid pattern utilities */
+.grid-pattern {
+  background-image: linear-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* GitHub-style dark theme */
+.github-dark {
+  background: #0d1117;
+  color: #f0f6fc;
+}
+
+/* Enhanced Animation delays with GitHub-style staggered effects */
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* GitHub authentic glow effects */
+.glow-blue {
+  box-shadow: 0 0 30px rgba(56, 139, 253, 0.3), 0 0 60px rgba(56, 139, 253, 0.1);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3), 0 0 60px rgba(34, 211, 238, 0.1);
+}
+
+/* Enhanced floating animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Apply animations */
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 10s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 9s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Professional enterprise-grade transitions */
+:root {
+  --transition-duration: 200ms;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: var(--transition-duration);
+}
+
+/* Optimized transitions for dark mode toggle */
+.dark-mode-optimized {
+  transition-duration: 0ms !important;
+}
+
+.dark-mode-optimized * {
+  transition-duration: 0ms !important;
+}
+
+/* Sophisticated glassmorphism effects */
+.glass-enterprise {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 139, 253, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-professional {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Advanced circuit-like grid patterns */
+.circuit-pattern {
+  background-image: linear-gradient(
+      rgba(56, 139, 253, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(56, 139, 253, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(139, 92, 246, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+}
+
+/* Data visualization inspired animations */
+@keyframes data-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    transform: translateX(-100%) translateY(0);
+  }
+  100% {
+    transform: translateX(100%) translateY(0);
+  }
+}
+
+@keyframes enterprise-hover {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+/* Professional hover effects */
+.enterprise-hover:hover {
+  animation: enterprise-hover 0.3s ease-out forwards;
+  box-shadow: 0 12px 40px rgba(56, 139, 253, 0.15);
+}
+
+.data-element {
+  animation: data-pulse 3s ease-in-out infinite;
+}
+
+/* Enhanced typography with Inter font optimizations */
+.enterprise-text {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+}
+
+/* Professional button states */
+.enterprise-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.enterprise-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.enterprise-button:hover::before {
+  left: 100%;
+}
+
+/* Sophisticated border animations */
+@keyframes border-flow {
+  0% {
+    border-color: rgba(75, 85, 99, 0.5);
+  }
+  50% {
+    border-color: rgba(56, 139, 253, 0.3);
+  }
+  100% {
+    border-color: rgba(75, 85, 99, 0.5);
+  }
+}
+
+.animated-border {
+  animation: border-flow 4s ease-in-out infinite;
+}
